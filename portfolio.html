@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Minimalist Portfolio — Your Name</title>
+
+  <!-- Font (Inter) + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-MH2e6sM4J6w0W3p6mQKjJmQk1mQm7K5ZkO4lI6Qq1W4ZqE6o0kH9q1L7m5v8Fv2tX1o2v6Q==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="portfolio.css">
+
+
+  
+</head>
+<!-- =========================================================================================================================================================
+  =========================================================================================================================================================
+  ========================================================================================================================================================= -->
+
+<body>
+  <div class="site" id="site" role="document" aria-label="Portfolio site">
+    <!-- Header -->
+    <header>
+      <a class="brand" href="#top" aria-label="Homepage">
+        <img class="logo" aria-hidden="true" src="LOGO1-removebg-preview.png" alt="logo">
+        <div>
+          <div class="title">Wasif Ali</div>
+          <div class="subtitle">Minimalist Frontend · Designer</div>
+        </div>
+      </a>
+
+      <div class="controls">
+        <button id="themeToggle" class="btn" aria-pressed="false" aria-label="Toggle theme">
+          <i class="fa-regular fa-moon" id="themeIcon" style="width: 16px"></i>
+          <span class="small" id="themeLabel">Light</span>
+        </button>
+        <a class="btn primary" href="#contact" title="Contact">Send a message</a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="hero" aria-label="Intro hero — first section">
+      <!-- decorative SVG art (inline so it's part of the page and changes color subtly with theme) -->
+      <svg class="art" viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0" stop-color="#7b61ff70" stop-opacity="1" />
+            <stop offset="1" stop-color="#4dd5ff70" stop-opacity="1" />
+          </linearGradient>
+          <linearGradient id="g2" x1="0" x2="1">
+            <stop offset="0" stop-color="#ffd27a" stop-opacity="0.85" />
+            <stop offset="1" stop-color="#ff7eb6" stop-opacity="0.9" />
+          </linearGradient>
+        </defs>
+
+        <!-- large blurred blobs -->
+        <g filter="url(#b)">
+          <ellipse cx="220" cy="200" rx="360" ry="200" fill="url(#g1)" opacity="0.9"></ellipse>
+          <ellipse cx="1100" cy="160" rx="320" ry="180" fill="url(#g2)" opacity="0.82"></ellipse>
+        </g>
+
+        <!-- subtle stroke lines -->
+        <g opacity="0.12" stroke="#000" stroke-width="1" fill="none">
+          <path d="M0 540 C200 420 600 620 1400 460" />
+        </g>
+
+        <!-- dark-mode overlay will be animated via JS by toggling data-theme -->
+      </svg>
+
+      <div class="hero-inner">
+        <h1 class="reveal-title">Creative. Clean. Impactful.</h1>
+        <p class="lead reveal-lead">
+          I design and build refined web experiences — small, fast interfaces
+          with thoughtful motion and delightful details.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="#projects" id="workBtn">See my work</a>
+          <a class="btn primary" href="#about" id="aboutBtn">About me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main aria-label="Main content">
+      <div class="left">
+        <section class="card" id="about">
+          <h2 class="reveal">About</h2>
+          <p class="muted reveal">
+            I focus on interfaces that feel premium due to attention to
+            typography, spacing, micro-interactions, and performance. I like
+            minimal palettes that blend into each other and subtle motion to
+            guide attention.
+          </p>
+        </section>
+        <!-- =======================================Projects section================================== -->
+        <section class="card" style="margin-top: 18px">
+          <h2 class="reveal">Projects</h2>
+          <div class="projects" id="projects">
+            <article class="project reveal-card">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  ">
+                <h3>Design System</h3>
+                <span class="small">2025</span>
+              </div>
+              <p class="small">
+                Tokens, components, and a tiny CSS runtime that respects
+                accessibility and theming.
+              </p>
+              <div class="tags">
+                <span class="tag">Design</span><span class="tag">React</span><span class="tag">System</span>
+              </div>
+            </article>
+
+            <article class="project reveal-card">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  ">
+                <h3>Performance Blog</h3>
+                <span class="small">2024</span>
+              </div>
+              <p class="small">
+                Writing and experiments about speed budgets, caching, and
+                content strategy.
+              </p>
+              <div class="tags">
+                <span class="tag">Jamstack</span><span class="tag">MDX</span>
+              </div>
+            </article>
+
+            <article class="project reveal-card">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  ">
+                <h3>Interaction Kit</h3>
+                <span class="small">2023</span>
+              </div>
+              <p class="small">
+                A tiny collection of accessible micro-interactions with
+                vanilla JS — no heavy libraries.
+              </p>
+              <div class="tags">
+                <span class="tag">JS</span><span class="tag">A11y</span>
+              </div>
+            </article>
+
+            <article class="project reveal-card">
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  ">
+                <h3>Personal Dashboard</h3>
+                <span class="small">2022</span>
+              </div>
+              <p class="small">
+                Opinionated tools for notes, habits, and quick links built
+                with Svelte.
+              </p>
+              <div class="tags">
+                <span class="tag">Svelte</span><span class="tag">Productivity</span>
+              </div>
+            </article>
+          </div>
+        </section>
+        <!-- =======================================about section================================== -->
+        <section class="card-about" id="About-Section" style="margin-top: 18px">
+          <h2 class="reveal-about">About Myself</h2>
+          <div class="about-items" id="aboutItems">
+            <!-- Background Card -->
+            <a href="#popup-background" style="text-decoration:none; color:inherit;">
+              <article class="about-item reveal-about-card">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <h3>Background</h3>
+                  <span class="small">2000</span>
+                </div>
+                <p class="small">
+                  I grew up fascinated by technology and design, exploring both fields through hands-on projects and
+                  experimentation.
+                </p>
+                <div class="tags-about">
+                  <span class="tag-about">Coding</span><span class="tag-about">Design</span><span
+                    class="tag-about">Creativity</span>
+                </div>
+              </article>
+            </a>
+            <!-- Education Card -->
+            <a href="#popup-education" style="text-decoration:none; color:inherit;">
+              <article class="about-item reveal-about-card" id="aboutCardUnique">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <h3>Education</h3>
+                  <span class="small">2022</span>
+                </div>
+                <p class="small">
+                  Studied computer science and design, building a strong foundation in both technical and creative
+                  skills.
+                </p>
+                <div class="tags-about">
+                  <span class="tag-about">Computer Science</span>
+                  <span class="tag-about">UI/UX</span>
+                </div>
+              </article>
+            </a>
+            <!-- Skills Card -->
+            <a href="#popup-skills" style="text-decoration:none; color:inherit;">
+              <article class="about-item reveal-about-card">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <h3>Skills</h3>
+                  <span class="small">Ongoing</span>
+                </div>
+                <p class="small">
+                  Continuously learning new technologies, frameworks, and design principles to stay ahead in the
+                  industry.
+                </p>
+                <div class="tags-about">
+                  <span class="tag-about">JS</span><span class="tag-about">React</span><span
+                    class="tag-about">GSAP</span>
+                </div>
+              </article>
+            </a>
+            <!-- Hobbies Card -->
+            <a href="#popup-hobbies" style="text-decoration:none; color:inherit;">
+              <article class="about-item reveal-about-card">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <h3>Hobbies</h3>
+                  <span class="small">2025</span>
+                </div>
+                <p class="small">
+                  Beyond coding and design, I enjoy exploring music, drawing, and experimenting with creative digital
+                  projects.
+                </p>
+                <div class="tags-about">
+                  <span class="tag-about">Music</span>
+                  <span class="tag-about">Drawing</span>
+                  <span class="tag-about">AI</span>
+                </div>
+              </article>
+            </a>
+          </div>
+        </section>
+      </div>
+        <!-- =======================================Sidebar================================== -->
+
+      <aside class="right">
+        <div class="card reveal">
+          <div class="profile">
+            <img src="LOGO1.png" alt="logo" class="avatar">
+            <div>
+              <div style="font-weight: 800">Wasif Ali</div>
+              <div class="small">Frontend Developer</div>
+            </div>
+          </div>
+
+          <p class="bio">
+            I build minimal, performance-minded UIs with thoughtful motion and
+            careful color. Let's craft something clean and memorable.
+          </p>
+
+          <div style="height: 12px"></div>
+
+          <div class="socials" aria-label="Social links">
+            <a href="#" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="Twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" title="TikTok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+
+        </div>
+
+        <div style="height: 18px"></div>
+
+        <div class="card reveal">
+  <div style="font-weight: 700; margin-bottom: 8px; padding-bottom: 20px;">Skills</div>
+  
+  <div class="skill">
+    <span>HTML  (80%)</span>
+    <div class="progress">
+      <div class="progress-bar" style="width: 80%; color: var(--card);"></div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <span>CSS  (70%)</span>
+    <div class="progress">
+      <div class="progress-bar" style="width: 70%; color: var(--card);" ></div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <span>JavaScript   (43%)</span>
+    <div class="progress">
+      <div class="progress-bar" style="width: 43%; color: var(--card);"></div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <span>React  (30%)</span>
+    <div class="progress">
+      <div class="progress-bar" style="width: 30%; color: var(--card);"></div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <span>Prompt Engineering  (67%)</span>
+    <div class="progress">
+      <div class="progress-bar" style="width: 67%; color: var(--card);"></div>
+    </div>
+  </div>
+</div>
+
+      </aside>
+    </main>
+
+    <!-- FOOTER with contact form -->
+    <footer id="contact" aria-label="Footer with contact form">
+      <div class="card" style="width: 100%; max-width: 1180px">
+        <div style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 16px;
+              flex-wrap: wrap;
+            ">
+          <div>
+            <div style="font-weight: 800; font-size: 18px">
+              Send me a message
+            </div>
+            <div class="small">
+              I'd love to hear about your project or just say hi — I'll reply
+              within a few days.
+            </div>
+          </div>
+          <div class="socials" aria-label="Social links">
+            <a href="#" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="Twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" title="TikTok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+
+        </div>
+
+
+        <form id="contactForm" class="contact-form" style="margin-top: 16px" novalidate>
+          <div class="contact-left">
+            <input type="text" id="name" class="input" placeholder="Your name" required aria-required="true" />
+            <input type="email" id="email" class="input" placeholder="Your email" required aria-required="true" />
+          </div>
+
+          <div class="contact-right">
+            <textarea id="message" rows="4" class="input" placeholder="Message..." required
+              aria-required="true"></textarea>
+
+            <div class="form-actions">
+              <div class="note" id="formNote" aria-live="polite"></div>
+              <div style="margin-left: auto; display: flex; gap: 10px">
+                <button type="submit" class="btn primary" id="sendBtn">
+                  <i class="fa-regular fa-paper-plane"></i> Send
+                </button>
+                <button type="reset" class="btn ghost">Reset</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div style="height: 12px"></div>
+      <div class="muted" style="text-align: center">
+        © <span id="year"></span> Wasif Ali — Minimal & Luxurious
+      </div>
+    </footer>
+
+  </div>
+
+  
+  
+  <!-- ================== POPUPS ================== -->
+
+  <!-- Hobbies Popup -->
+  <div id="popup-hobbies" class="popup-overlay">
+    <div class="popup-content">
+      <h2>My Hobbies<span><a href="#About-Section" class="close-btn"><i class="fa-solid fa-close"></i></a></span></h2>
+      <div class="popup-content-p">
+        <p>
+          I love music, drawing, and AI experiments. I spend time sketching, listening
+          to melodies, and creating digital projects that push creativity.
+        </p>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda, consectetur unde!
+          Quasi eum recusandae ipsa nisi atque commodi, hic incidunt ullam eaque ab?
+        </p>
+        <p>
+          Ullam eaque hic sequi eos tenetur neque veniam. Accusantium, ex dicta.
+          Distinctio nemo mollitia atque exercitationem laudantium eos accusantium voluptas. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, repellat quis! Ab quibusdam odit, neque eligendi totam adipisci obcaecati omnis velit, atque facilis rem consectetur est eos sapiente tempore nam.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Popup -->
+  <div id="popup-background" class="popup-overlay">
+    <div class="popup-content">
+      <h2>My Background<span><a href="#About-Section" class="close-btn"><i class="fa-solid fa-close"></i></a></span></h2>
+      <div class="popup-content-p">
+        <p>
+          A little about my journey, experiences, and where I started. This section
+          gives insight into my personal and professional story.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Quaerat expedita omnis velit molestias itaque, animi dolorum deserunt.
+        </p>
+        <p>
+          Ullam dicta quibusdam voluptate corporis reiciendis eum.
+          Repellendus numquam nostrum voluptates similique.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Education Popup -->
+  <div id="popup-education" class="popup-overlay">
+    <div class="popup-content">
+      <h2>My Education<span><a href="#About-Section" class="close-btn"><i class="fa-solid fa-close"></i></a></span></h2>
+      <div class="popup-content-p">
+        <p>
+          Studied computer science and design, building a strong foundation in both technical and creative skills.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Voluptatibus maxime maiores doloremque molestiae vero odit laboriosam cum.
+        </p>
+        <p>
+          Atque facilis illum quaerat dolorum nisi unde modi temporibus
+          sequi assumenda voluptatum.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills Popup -->
+  <div id="popup-skills" class="popup-overlay">
+    <div class="popup-content">
+      <h2>My Skills<span><a href="#About-Section" class="close-btn"><i class="fa-solid fa-close"></i></a></span></h2>
+      <div class="popup-content-p">
+        <p>
+          A mix of technical expertise and creative problem-solving abilities.
+          Comfortable with modern frameworks, UI/UX design, and animations.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Saepe quos sint repudiandae tempora facere corporis.
+        </p>
+        <p>
+          Fugit quia tempora iure sapiente! At deserunt molestias eveniet
+          laudantium minima veritatis.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    integrity="sha512-+sY3xF2m1XyZyQ1d3n7NQFzq8pX0oTj0Lq9cE6ZTnmL1zGk2aQ==" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+    <script src="portfolio.js"></script>
+</body>
+
+</html>
