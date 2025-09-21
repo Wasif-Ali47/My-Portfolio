@@ -70,30 +70,6 @@
 
       gsap.registerPlugin(ScrollTrigger);
 
-      // Hero reveal: text & lead
-      gsap.from(".reveal-title", {
-        y: 18,
-        opacity: 0,
-        duration: 0.9,
-        ease: "power3.out",
-        delay: 0.12,
-      });
-      gsap.from(".reveal-lead", {
-        y: 14,
-        opacity: 0,
-        duration: 0.85,
-        ease: "power3.out",
-        delay: 0.22,
-      });
-      gsap.from(".cta .btn", {
-        y: 8,
-        opacity: 0,
-        duration: 0.7,
-        ease: "power2.out",
-        stagger: 0.08,
-        delay: 0.36,
-      });
-
       // Reveal batch for cards / sections using ScrollTrigger.batch
       const batchTargets = document.querySelectorAll(".reveal, .reveal-card");
       gsap.utils.toArray(batchTargets).forEach((el) => {
@@ -104,55 +80,33 @@
           ease: "power3.out",
           scrollTrigger: {
             trigger: el,
-            start: "top 85%",
+            start: "top 80%",
+            stagger:true,
             toggleActions: "play none none none",
           },
         });
       });
 
-      // Projects: staggered entrance
-      gsap.from(".project", {
-        y: 26,
-        opacity: 0,
-        duration: 0.85,
-        ease: "power3.out",
-        stagger: 0.12,
-        scrollTrigger: {
-          trigger: "#projects",
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      });
-
       // Small interactive hover parallax on hero svg blobs (subtle)
       gsap.to(".art ellipse:nth-child(1)", {
-        x: -18,
-        y: -8,
-        duration: 12,
+        x: -28,
+        y: -18,
+        duration: 5,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
       });
       gsap.to(".art ellipse:nth-child(2)", {
-        x: 20,
-        y: 6,
-        duration: 14,
+        x: 40,
+        y: 16,
+        duration: 8,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
       });
 
-      // Theme switch on scroll:
-      // When the top of the hero leaves the viewport (end of hero), switch to dark theme.
-      ScrollTrigger.create({
-        trigger: "#hero",
-        start: "top top",
-        end: "bottom top",
-        onEnter: () => switchThemeTo("dark"),
-        onEnterBack: () => switchThemeTo("light"),
-        onLeaveBack: () => switchThemeTo("light"),
-      });
 
+  
       // Smooth theme transition function
       let lastTheme =
         document.documentElement.getAttribute("data-theme") || "light";
@@ -235,3 +189,167 @@
       });
     })();
 
+// fade up animation for hero content
+
+
+
+
+var textFadUp = document.querySelector("#textfadeup h1, p");
+var btnFadeUp = document.querySelector("#btnfadeup");
+
+var tl5 = gsap.timeline();
+
+
+tl5.from("#textfadeup h1 p", {
+  opacity: 0,
+  y: -600,
+  duration: 0.5,
+  stagger: 0.2,
+});
+tl5.from("#btnfadeup", {
+  opacity: 0,
+  y: -200,
+  duration: 0.3,
+});
+
+
+// JS to close popup when clicking overlay
+document.querySelectorAll('.popup-overlay').forEach(overlay => {
+  overlay.addEventListener('click', e => {
+    // Only close if clicked directly on overlay, not inside the content
+    if (e.target === overlay) {
+      window.location.hash = '#About-Section'; // closes popup
+    }
+  });
+});
+
+// Disable background scroll when popup opens
+const popups = document.querySelectorAll('.popup-overlay');
+
+popups.forEach(popup => {
+  popup.addEventListener('click', e => {
+    if (e.target === popup) {
+      window.location.hash = '#About-Section';
+      document.body.style.overflow = 'auto'; // restore scroll
+    }
+  });
+
+  // When popup opens
+  popup.addEventListener('transitionstart', () => {
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+
+
+// bubble
+const bubble = document.getElementById('readBubble');
+
+document.querySelectorAll('.about-item').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    bubble.style.left = e.clientX + 'px';
+    bubble.style.top = e.clientY + 'px';
+    bubble.style.opacity = 1;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    bubble.style.opacity = 0;
+  });
+});
+
+
+
+// Select elements
+const aboutCardUnique = document.getElementById("aboutCardUnique");
+const popupEducation = document.getElementById("popup-education");
+const closeBtn = popupEducation.querySelector(".close-btn");
+
+// Function to open popup
+function openPopup(popup) {
+  popup.style.display = "flex";                 // show popup
+  document.body.style.overflow = "hidden";     // disable background scroll
+
+  // GSAP animation for popup content
+  gsap.fromTo(
+    popup.querySelector(".popup-content"),
+    { opacity: 0, y: -50, scale: 0.95 },
+    { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power2.out" }
+  );
+}
+
+// Function to close popup
+function closePopup(popup) {
+  // Animate out then hide
+  gsap.to(popup.querySelector(".popup-content"), {
+    opacity: 0,
+    y: -50,
+    scale: 0.95,
+    duration: 0.3,
+    ease: "power2.in",
+    onComplete: () => {
+      popup.style.display = "none";
+      document.body.style.overflow = "auto"; // restore scroll
+    }
+  });
+}
+
+// Open popup when card clicked
+aboutCardUnique.addEventListener("click", (e) => {
+  e.preventDefault(); // prevent jumping to anchor
+  openPopup(popupEducation);
+});
+
+// Close popup when clicking close button
+closeBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  closePopup(popupEducation);
+});
+
+// Close popup when clicking overlay (outside content)
+popupEducation.addEventListener("click", (e) => {
+  if (e.target === popupEducation) closePopup(popupEducation);
+});
+
+
+
+
+
+
+
+// Select all cards
+const cards = document.querySelectorAll(".about-item");
+
+cards.forEach(card => {
+  card.addEventListener("click", () => {
+    const popupId = "popup-" + card.id.split("-")[1]; // card-hobbies → popup-hobbies
+    const popup = document.getElementById(popupId);
+    if (!popup) return;
+
+    // Show popup with GSAP
+    popup.style.display = "flex";
+    gsap.fromTo(popup, {opacity:0}, {opacity:1, duration:0.3});
+
+    // Disable background scroll
+    document.body.style.overflow = "hidden";
+
+    // Close popup function
+    const closeBtn = popup.querySelector(".close-btn");
+    closeBtn.onclick = () => closePopup(popup);
+
+    // Click overlay to close
+    popup.onclick = (e) => {
+      if (e.target === popup) closePopup(popup);
+    };
+  });
+});
+
+function closePopup(popup) {
+  gsap.to(popup, {
+    opacity:0,
+    duration:0.3,
+    onComplete: () => {
+      popup.style.display = "none";
+      document.body.style.overflow = "auto"; // restore scroll
+    }
+  });
+}
